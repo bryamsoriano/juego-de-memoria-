@@ -1,0 +1,257 @@
+/* ============================================================
+   VARIABLES GLOBALES
+   ============================================================ */
+:root {
+  --bg-main: #0f172a;
+  --bg-panel: #1e293b;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-warm: #fb923c;
+  --success: #10b981;
+  --danger: #ef4444;
+  --card-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+}
+
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 2.6em;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.app-title span {
+  color: var(--accent);
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+/* ============================================================
+   PANEL DE CONTROLES
+   ============================================================ */
+.controls {
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field-group label,
+.difficulty-level label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field-group input,
+.difficulty-level select {
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: var(--bg-main);
+  color: var(--text-light);
+  font-size: 1em;
+}
+
+.difficulty-level {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.btn-start {
+  align-self: flex-end;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-start:hover {
+  background: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+.chonometer-display {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.chonometer-display span {
+  color: var(--accent-warm);
+  font-variant-numeric: tabular-nums;
+}
+
+.game-stats {
+  display: flex;
+  gap: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.95em;
+}
+
+.game-stats strong {
+  color: var(--text-light);
+}
+
+/* ============================================================
+   TABLERO DE CARTAS
+   ============================================================ */
+.game-container {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.viewLoad {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.item-grid {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  background: var(--bg-panel);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.15s ease;
+}
+
+.item-grid:hover {
+  transform: translateY(-3px);
+}
+
+.item-grid.matched {
+  outline: 3px solid var(--success);
+  cursor: default;
+}
+
+.item-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================================
+   TABLA DE CLASIFICACIÓN
+   ============================================================ */
+.ranking-container {
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+}
+
+.ranking-title {
+  margin-bottom: 1rem;
+  font-size: 1.4em;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #334155;
+}
+
+.ranking-table th {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+.ranking-table tr:first-child td {
+  color: var(--accent-warm);
+  font-weight: 700;
+}
+
+.ranking-empty {
+  color: var(--text-muted);
+  padding: 1.5rem;
+}
+
+.btn-clear-ranking {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.btn-clear-ranking:hover {
+  background: var(--danger);
+  color: white;
+}

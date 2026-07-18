@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de Memoria</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="main-container">
+
+    <header class="app-header">
+      <h1 class="app-title">Memoria<span>+</span></h1>
+      <p class="app-subtitle">Encuentra todas las parejas en el menor tiempo posible</p>
+    </header>
+
+    <!-- ================= PANEL DE CONTROLES ================= -->
+    <section class="controls">
+
+      <div class="field-group">
+        <label for="player-name">Nombre del jugador</label>
+        <input type="text" id="player-name" placeholder="Escribe tu nombre" maxlength="15" />
+      </div>
+
+      <div class="difficulty-level">
+        <label for="level-games">Nivel de dificultad</label>
+        <select id="level-games">
+          <option value="">-- Selecciona --</option>
+          <option value="6">Fácil (6 cartas)</option>
+          <option value="8">Medio (8 cartas)</option>
+          <option value="12">Difícil (12 cartas)</option>
+          <option value="16">Experto (16 cartas)</option>
+        </select>
+      </div>
+
+      <button class="btn-start" onclick="startCards()">Iniciar juego</button>
+
+      <!-- ================= CRONÓMETRO ================= -->
+      <div class="chonometer-display">
+        Tiempo: <span id="chonometer-display">00:00:00</span>
+      </div>
+
+      <div class="game-stats">
+        <span>Movimientos: <strong id="moves-count">0</strong></span>
+        <span>Parejas: <strong id="pairs-count">0</strong>/<strong id="pairs-total">0</strong></span>
+      </div>
+
+    </section>
+
+    <!-- ================= TABLERO DE JUEGO ================= -->
+    <section class="game-container">
+      <div id="grid-cards" class="grid-cards">
+        <label class="viewLoad">Selecciona un nivel y presiona "Iniciar juego"</label>
+      </div>
+    </section>
+
+    <!-- ================= TABLA DE CLASIFICACIÓN ================= -->
+    <section class="ranking-container">
+      <h2 class="ranking-title">🏆 Mejores puntuaciones</h2>
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Nivel</th>
+            <th>Tiempo</th>
+            <th>Movimientos</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody id="ranking-body">
+          <tr><td colspan="6" class="ranking-empty">Aún no hay partidas jugadas</td></tr>
+        </tbody>
+      </table>
+      <button class="btn-clear-ranking" onclick="clearRanking()">Borrar clasificación</button>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
